@@ -17,14 +17,14 @@
  * 2, return  the text state into action payload which is text.
  * 
  */
- import {SEARCH_MOVIE} from '../action/types';
+ import {SEARCH_MOVIE} from '../actions/types';
 
  // 4 basic states
  const initialState = {
-     text = '', // user search text
-     movies = [], // search result 
+     text: '', // user search text
+     movies: [], // search result 
      loading: false, // f/t depending on data arrived/or not
-     movie:[]
+     movie: [] // single movie: get info from api. 
  }
 
  export default function(state = initialState, action){
