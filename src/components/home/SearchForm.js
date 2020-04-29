@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
-import {searchMovie} from '../../actions/searchActions'
+import {searchMovie, fetchMovies} from '../../actions/searchActions'
 import {connect} from 'react-redux'
 
 export class SearchForm extends Component {
     onChange = e => {
         this.props.searchMovie(e.target.value);
     }
+
+    // onSubmit = e => {
+    //     e.preventDefault();
+    //     this.props.fetchMovies(this.props.text) // the action in the props; text is passed already saved/pulled out in state, just call it
+    // }
+
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.fetchMovies(this.props.text);
+        console.log(this.props.text)
+        
+      };
 
     render() {
         return (
@@ -36,11 +48,13 @@ export class SearchForm extends Component {
 
 // destructering method
 // pullout state from global states
-const mapStatesToProps = state => ({
+const mapStateToProps = state => ({
     text: state.movies.text
 })
 
 
 // if already has action inside component
 // so we need this action in the connect
-export default connect(mapStatesToProps, {searchMovie})(SearchForm);
+export default connect(mapStateToProps, 
+    { searchMovie, fetchMovies })
+    (SearchForm);
