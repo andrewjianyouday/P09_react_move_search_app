@@ -1,3 +1,4 @@
+ import {SEARCH_MOVIE, FETCH_MOVIES} from '../actions/types';
 /** each action has parameters 
  * reco action by
  * 1, type
@@ -17,8 +18,6 @@
  * 2, return  the text state into action payload which is text.
  * 
  */
- import {SEARCH_MOVIE, FETCH_MOVIES} from '../actions/types';
-
  // 4 basic states
  const initialState = {
      text: '', // user search text
