@@ -1,4 +1,7 @@
-import {SEARCH_MOVIE} from './types';
+import {SEARCH_MOVIE, FETCH_MOVIES} from './types';
+import axios from 'axios'
+import {APIKey} from '../APIKey'
+
 
 /**
  * 
@@ -20,3 +23,33 @@ export const searchMovie = text => dispatch => {
     })
 
 }
+
+
+/**
+ * Create Fetch Mmovies Action
+ */
+
+// export const fetchMovies = text => dispatch => {
+// axios
+//     .get(`http://www.omdbapi.com/?apikey=${APIKey}&s=${text}`)
+//     .then(response => 
+//         dispatch({
+//             type: FETCH_MOVIES,
+//             payload: response.data
+
+//     })
+//     )
+//     .catch(err => console.log(err))
+
+        
+//  };
+
+export const fetchMovies = text => dispatch => {
+    axios.get(`https://www.omdbapi.com/?apikey=${APIKey}&s=${text}`).then(response =>
+        dispatch({
+          type: FETCH_MOVIES,
+          payload: response.data.Search
+        })
+      )
+      .catch(err => console.log(err));
+  };
