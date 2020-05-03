@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {searchMovie, fetchMovies} from '../../actions/searchActions'
+import {searchMovie, fetchMovies, setLoading} from '../../actions/searchActions'
 import {connect} from 'react-redux'
 
 export class SearchForm extends Component {
@@ -15,7 +15,8 @@ export class SearchForm extends Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text);
-        console.log(this.props.text)
+        this.props.setLoading();
+        // console.log(this.props.text)
         
       };
 
@@ -56,5 +57,5 @@ const mapStateToProps = state => ({
 // if already has action inside component
 // so we need this action in the connect
 export default connect(mapStateToProps, 
-    { searchMovie, fetchMovies })
+    { searchMovie, fetchMovies, setLoading})
     (SearchForm);
