@@ -15,6 +15,8 @@ export class SearchForm extends Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text);
+        
+        // set loading as True(spiner spining) when requesting data via api call
         this.props.setLoading();
         // console.log(this.props.text)
         
