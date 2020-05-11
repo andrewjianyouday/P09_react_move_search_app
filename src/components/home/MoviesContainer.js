@@ -20,10 +20,7 @@ export class MoviesContainer extends Component {
         
         content = movies.length > 0 ? movies.map((movieItem, index) => <MovieCard key = {index} movie = {movieItem}/>) : null
         return (
-            <div className = "row">
-                {content}
-                
-            </div>
+            <div className = "row">{content}</div>
         )
     }
 }
