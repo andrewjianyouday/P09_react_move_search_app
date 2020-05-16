@@ -1,4 +1,4 @@
- import {SEARCH_MOVIE, FETCH_MOVIES, LOADING} from '../actions/types';
+ import {SEARCH_MOVIE, FETCH_MOVIES, LOADING, FETCH_MOVIE} from '../actions/types';
 /** each action has parameters 
  * reco action by
  * 1, type
@@ -44,7 +44,13 @@
         case LOADING:
             return {
                 ...state,
-                loading: true,
+                loading: true
+            };
+        case FETCH_MOVIE:
+            return {
+                ...state,
+                movie: action.payload,
+                loading: false
             };
 
         default: 
